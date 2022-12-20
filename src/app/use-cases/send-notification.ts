@@ -14,7 +14,7 @@ interface SendNotificationResponse {
 }
 
 @Injectable()
-class SendNotification {
+export class SendNotification {
   constructor(private notificationsRepository: NotificationsRepository) {}
 
   async execute(
@@ -30,8 +30,8 @@ class SendNotification {
 
     await this.notificationsRepository.create(notification);
 
-    return { notification };
+    return {
+      notification,
+    };
   }
 }
-
-export { SendNotification };
